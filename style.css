@@ -4,6 +4,20 @@
     letter-spacing: 2px;
 }
 
+#logoTexto {
+    float: right;
+    color: #2A59C2;
+    font-family: 'Poppins';font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    padding-left: 10px;
+    padding-right: 30px;
+}
+
 #logo {
-    text-align: right;
+    float: right;
+}
+
+#cabeçalho {
+    padding-left: 15px;
 }
