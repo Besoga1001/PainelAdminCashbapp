@@ -1,0 +1,9 @@
+.titulo {
+    font-family: 'Poppins';font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+#logo {
+    text-align: right;
+}
