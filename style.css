@@ -4,7 +4,7 @@ body {
 }
 
 .titulo {
-    font-family: 'Poppins';font-size: 24px;
+    font-family: 'Poppins';font-size: 28px;
     letter-spacing: 2px;
     margin: 0;
     width: 500px;
@@ -47,4 +47,19 @@ body {
     width: 270px;
     height: 817px;
     background-color: #FFFFFF;
+    position: absolute;
+}
+
+.textMenuBar {
+    margin: 0;
+    font-family: 'Poppins';font-size: 18px;
+    letter-spacing: 2px;
+    padding: 36px 30px 0px 50px;
+}
+
+.iconMenuBar {
+    float: left;
+    width: 36px;
+    height: 36px;
+    padding: 32px 10px 0px 20px;
 }
