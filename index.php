@@ -1,5 +1,18 @@
 <?php 
-    include_once('backend/connection.php')
+    function getStringApproved($approved) {
+        $string = "";
+
+        if ($approved == "S"){
+            $string = "Aprovada";
+        }else{
+            $string = "Não Aprovada";
+        }
+
+        return $string;
+    }
+
+    include('backend/connection.php')
+    
 ?>
 
 <!DOCTYPE html>
@@ -34,13 +47,24 @@
         <table>
             <tr>
                 <th>ID</th>
-                <th>VENDEDOR</th>
-                <th>SITUAÇÃO</th>
+                <th id="seller">VENDEDOR</th>
+                <th id="situation">SITUAÇÃO</th>
             </tr>
-            <tr>
-                <th>1</th>
-                <th>CARLOS</th>
-                <th>APROVADO</th>
+            
+                <?php
+                    $result = $connection->query("SELECT * FROM realeases")->fetchAll();
+
+                    foreach($result as $item) {
+                        $id = $item['id'];
+                        $userName = $item['userName'];
+                        $approved = getStringApproved($item['approved']);
+                        echo "<tr>";
+                        echo "<td>$id</td>";
+                        echo "<td>$userName</td>";
+                        echo "<td>$approved</td>";
+                        echo "</tr>";
+                    }
+                ?>
             </tr>
         </table>
     </div>
