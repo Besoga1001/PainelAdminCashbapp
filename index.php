@@ -1,3 +1,7 @@
+<?php 
+    include_once('backend/connection.php')
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,12 +12,12 @@
     <title>Painel de Relatórios</title>
 </head>
 <body>
-    <div id="cabeçalho">
-        <h1 class="logoTexto">CASHBAPP</h1>
+    <div class="header">
+        <h1 class="logoText">CASHBAPP</h1>
         <img id="logo" src="images/LogoCashbapp.png">
-        <h1 class="titulo">PAINEL DE ADMINISTRADOR</h1>
+        <h1 class="title">PAINEL DE ADMINISTRADOR</h1>
     </div>
-    <div class="quebra"></div>
+    <div class="break"></div>
     <div class="menuBar">
         <div class="firstComponentMenuBar">
             <img class="iconMenuBar" src="images/solicitacaoImg.png">
@@ -23,8 +27,22 @@
         <div class="componentMenuBar">
             <img class="iconMenuBar" src="images/monetarioIcon.png">
             <h1 class="textMenuBar">MONETÁRIO</h1>
-            <!--<img class="lineMenuBar" src="images/division-menuBar.png">-->
+            <img class="lineMenuBar" src="images/division-menuBar.png">
         </div>
+    </div>
+    <div class="table">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>VENDEDOR</th>
+                <th>SITUAÇÃO</th>
+            </tr>
+            <tr>
+                <th>1</th>
+                <th>CARLOS</th>
+                <th>APROVADO</th>
+            </tr>
+        </table>
     </div>
 </body>
 </html>
