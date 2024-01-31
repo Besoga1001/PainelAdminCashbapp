@@ -1,0 +1,16 @@
+{
+    "name": "besoga1001/painel-admin-cashbapp",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Besoga1001\\PainelAdminCashbapp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Besoga1001",
+            "email": "bernardo.sousa.garcia@gmail.com"
+        }
+    ],
+    "require": {}
+}

@@ -3,15 +3,21 @@
         $string = "";
 
         if ($approved == "S"){
-            $string = "Aprovada";
-        }else{
-            $string = "Não Aprovada";
+            $string = "APROVADA";
+        }elseif($approved == "E"){
+            $string = "EM ANALÍSE";
+        } else {
+            $string = "DESAPROVADA";
         }
 
         return $string;
     }
 
-    include('backend/connection.php')
+    if (!extension_loaded('mbstring')) {
+        die('A extensão mbstring não está habilitada.');
+    }
+
+    include('src/backend/connection.php')
     
 ?>
 
@@ -20,7 +26,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="frontend/style.css">
+    <link rel="stylesheet" type="text/css" href="src/frontend/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <title>Painel de Relatórios</title>
 </head>
@@ -55,8 +61,8 @@
                     $result = $connection->query("SELECT * FROM realeases")->fetchAll();
 
                     foreach($result as $item) {
-                        $id = $item['id'];
-                        $userName = $item['userName'];
+                        $id = strtoupper($item['id']);
+                        $userName = mb_strtoupper($item['userName']);
                         $approved = getStringApproved($item['approved']);
                         echo "<tr>";
                         echo "<td>$id</td>";
