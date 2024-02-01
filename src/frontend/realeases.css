@@ -1,3 +1,8 @@
+.pdfIcon {
+    text-align: center;
+    padding: 10px;
+}
+
 #realeases {
     overflow-x: auto;
     align-items: center;

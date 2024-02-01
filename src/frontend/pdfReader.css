@@ -1,0 +1,10 @@
+body {
+    margin: 0;
+    background-color: #F3F3F3;
+    overflow: hidden;
+}
+
+.pdfReader {
+    height: 100vh;
+    width: 100%;
+}

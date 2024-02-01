@@ -60,7 +60,7 @@
                     <th>ID</th>
                     <th id="seller">VENDEDOR</th>
                     <th id="situation">SITUAÇÃO</th>
-                    <th id="situation">ARQUIVO PDF</th>
+                    <th>PDF</th>
                 </tr>
                     <?php
                         $result = $connection->query("SELECT * FROM realeases")->fetchAll();
@@ -69,13 +69,19 @@
                             $id = strtoupper($item['id']);
                             $userName = mb_strtoupper($item['userName']);
                             $approved = getStringApproved($item['approved']);
-                            $pdf = $item['nfe_pdf'];
-                            echo "<tr>";
-                                echo "<td>$id</td>";
-                                echo "<td>$userName</td>";
-                                echo "<td>$approved</td>";
-                                echo "<td>$pdf</td>";
-                            echo "</tr>";
+                            #$pdf = $item['nfe_pdf'];
+                            echo "<tr>
+                                <td>$id</td>
+                                <td>$userName</td>
+                                <td>$approved</td>
+                                <td class='pdfIcon'>
+                                <form action='pdf-reader.php' method='post'>
+                                <a href='src/backend/pdf-reader.php' target='_blank'>
+                                <img class='icon' src='images/pdf-icon.png'>
+                                </a>
+                                </form>
+                                </td>
+                                </tr>";
                         }
                     ?>
                 </tr>

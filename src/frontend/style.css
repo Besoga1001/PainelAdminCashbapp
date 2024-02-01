@@ -12,6 +12,7 @@ caption {
 table {
     border-collapse: collapse;
     text-align: center;
+    
 }
 
 th, td {
@@ -25,6 +26,13 @@ th, td {
     grid-template-columns: 14% 1fr;
     grid-template-rows: 11.5% 1% 1fr;
     height: 100vh;
+}
+
+.icon {
+    width: 32px;
+    height: 32px;
+    padding-top: 6px;
+    padding-left: 1.5px;
 }
 
 /* Para utilizar nos testes de div
