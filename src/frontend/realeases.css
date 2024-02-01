@@ -1,0 +1,16 @@
+#realeases {
+    overflow-x: auto;
+    align-items: center;
+    margin: auto;
+    width: 100%;
+    height: 85.75%;
+    justify-content: center;
+}
+
+#seller {
+    padding: 10px 100px;
+}
+
+#situation {
+    padding: 10px 100px;
+}

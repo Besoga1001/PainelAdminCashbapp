@@ -27,6 +27,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="src/frontend/style.css">
+    <link rel="stylesheet" type="text/css" href="src/frontend/header.css">
+    <link rel="stylesheet" type="text/css" href="src/frontend/menuBar.css">
+    <link rel="stylesheet" type="text/css" href="src/frontend/realeases.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <title>Painel de Relatórios</title>
 </head>
@@ -49,12 +52,14 @@
             <img class="lineMenuBar" src="images/division-menuBar.png">
         </div>
     </div>
-    <div class="table">
+    <div id="realeases">
         <table>
+            <caption>SOLICITAÇÕES</caption>
             <tr>
                 <th>ID</th>
                 <th id="seller">VENDEDOR</th>
                 <th id="situation">SITUAÇÃO</th>
+                <th id="situation">ARQUIVO PDF</th>
             </tr>
             
                 <?php
@@ -64,10 +69,12 @@
                         $id = strtoupper($item['id']);
                         $userName = mb_strtoupper($item['userName']);
                         $approved = getStringApproved($item['approved']);
+                        $pdf = $item['nfe_pdf'];
                         echo "<tr>";
-                        echo "<td>$id</td>";
-                        echo "<td>$userName</td>";
-                        echo "<td>$approved</td>";
+                            echo "<td>$id</td>";
+                            echo "<td>$userName</td>";
+                            echo "<td>$approved</td>";
+                            echo "<td>$pdf</td>";
                         echo "</tr>";
                     }
                 ?>
