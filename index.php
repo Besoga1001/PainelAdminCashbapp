@@ -63,20 +63,21 @@
                     <th>PDF</th>
                 </tr>
                     <?php
+
                         $result = $connection->query("SELECT * FROM realeases")->fetchAll();
 
                         foreach($result as $item) {
                             $id = strtoupper($item['id']);
                             $userName = mb_strtoupper($item['userName']);
                             $approved = getStringApproved($item['approved']);
-                            #$pdf = $item['nfe_pdf'];
+                            $pdf = $item['nfe_pdf'];
                             echo "<tr>
                                 <td>$id</td>
                                 <td>$userName</td>
                                 <td>$approved</td>
                                 <td class='pdfIcon'>
-                                <form action='pdf-reader.php' method='post'>
-                                <a href='src/backend/pdf-reader.php' target='_blank'>
+                                <form action='pdf-loader.php' method='post'>
+                                <a href='src/backend/pdf-loader.php' target='_blank'>
                                 <img class='icon' src='images/pdf-icon.png'>
                                 </a>
                                 </form>

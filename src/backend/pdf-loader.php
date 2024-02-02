@@ -1,9 +1,12 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../frontend/pdfReader.css">
+    <link rel="stylesheet" type="text/css" href="../frontend/pdfLoader.css">
     <title>Nota Fiscal Eletrônica</title>
 </head>
 <body>
@@ -12,3 +15,4 @@
     </div>
 </body>
 </html>
+
