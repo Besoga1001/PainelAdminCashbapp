@@ -1,8 +1,6 @@
 <?php
-    include_once('src/backend/connection.php')
-?>
+    include_once('src/backend/connection.php');
 
-<?php
     if (isset($_GET['id'])) {
         $id = intval($_GET['id']);
         $pdf_path = $connection->query("SELECT nfe_pdf FROM realeases WHERE id = $id")->fetchColumn();

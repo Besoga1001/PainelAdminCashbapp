@@ -17,7 +17,28 @@
         die('A extensão mbstring não está habilitada.');
     }
 
-    include('src/backend/connection.php')
+    include('src/backend/connection.php');
+
+    $result = $connection->query("SELECT * FROM realeases")->fetchAll();
+
+    function approvesRequest($id, $connection) {
+        $erro = 0;
+        $approved = $connection->query("SELECT approved FROM realeases WHERE id = '$id';")->fetchColumn();
+        if ($approved == 'E') {
+            $connection->query("UPDATE realeases SET approved = 'S' WHERE id = '$id';");
+        } else {
+            $erro = 1;
+        }
+        return $erro;
+    }
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["approvesRequest"])) {
+        $erro = approvesRequest($_POST['id'], $connection);
+        if ($erro == 0) {
+            header("Location: " . $_SERVER['PHP_SELF']);
+            exit();
+        }
+    }
     
 ?>
 
@@ -47,11 +68,6 @@
                 <h1 class="textMenuBar">SOLICITAÇÕES</h1>
                 <img class="lineMenuBar" src="images/division-menuBar.png">
             </div>
-            <div class="componentMenuBar">
-                <img class="iconMenuBar" src="images/monetarioIcon.png">
-                <h1 class="textMenuBar">MONETÁRIO</h1>
-                <img class="lineMenuBar" src="images/division-menuBar.png">
-            </div>
         </div>
         <div id="realeases">
             <table>
@@ -63,29 +79,30 @@
                     <th class='rowTable' >PDF</th>
                 </tr>
                     <?php
-
-                        $result = $connection->query("SELECT * FROM realeases")->fetchAll();
-
                         foreach($result as $item) {
                             $id = strtoupper($item['id']);
                             $userName = mb_strtoupper($item['userName']);
                             $approved = getStringApproved($item['approved']);
                             echo 
-                            "<form action='pdf-loader.php' method='get'>
-                                <tr>
-                                    <td class='rowTable'>$id</td>
-                                    <td class='rowTable'>$userName</td>
-                                    <td class='rowTable'>$approved</td>
+                            "<tr>
+                                <td name='id' class='rowTable'>$id</td>
+                                <td class='rowTable'>$userName</td>
+                                <td class='rowTable'>$approved</td>
+                                <form action='pdf-loader.php' method='get'>
                                     <td class='pdfIcon'>
                                         <a href='src/backend/pdf-loader.php?id=$id' target='_blank'>
                                             <img class='icon' src='images/pdf-icon.png'>
                                         </a>
                                     </td>
+                                </form>
+                                <form method='POST'>
                                     <td class='buttonTable'>
-                                        <input id='buttonToApprove' type='button' value='APROVAR'>
+                                        <input type='hidden' name='id' value='$id'>
+                                        <input type='hidden' name='approvesRequest' value='1'>
+                                        <input id='buttonToApprove' type='submit' value='APROVAR'>
                                     </td>
-                                </tr>
-                            </form>";
+                                </form>
+                            </tr>";
                         }
                     ?>
                 </tr>
