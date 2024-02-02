@@ -57,10 +57,10 @@
             <table>
                 <caption>SOLICITAÇÕES</caption>
                 <tr>
-                    <th>ID</th>
-                    <th id="seller">VENDEDOR</th>
-                    <th id="situation">SITUAÇÃO</th>
-                    <th>PDF</th>
+                    <th class='rowTable'>ID</th>
+                    <th class='rowTable' id='seller'>VENDEDOR</th>
+                    <th class='rowTable' id='situation'>SITUAÇÃO</th>
+                    <th class='rowTable' >PDF</th>
                 </tr>
                     <?php
 
@@ -70,19 +70,22 @@
                             $id = strtoupper($item['id']);
                             $userName = mb_strtoupper($item['userName']);
                             $approved = getStringApproved($item['approved']);
-                            $pdf = $item['nfe_pdf'];
-                            echo "<tr>
-                                <td>$id</td>
-                                <td>$userName</td>
-                                <td>$approved</td>
-                                <td class='pdfIcon'>
-                                <form action='pdf-loader.php' method='post'>
-                                <a href='src/backend/pdf-loader.php' target='_blank'>
-                                <img class='icon' src='images/pdf-icon.png'>
-                                </a>
-                                </form>
-                                </td>
-                                </tr>";
+                            echo 
+                            "<form action='pdf-loader.php' method='get'>
+                                <tr>
+                                    <td class='rowTable'>$id</td>
+                                    <td class='rowTable'>$userName</td>
+                                    <td class='rowTable'>$approved</td>
+                                    <td class='pdfIcon'>
+                                        <a href='src/backend/pdf-loader.php?id=$id' target='_blank'>
+                                            <img class='icon' src='images/pdf-icon.png'>
+                                        </a>
+                                    </td>
+                                    <td class='buttonTable'>
+                                        <input id='buttonToApprove' type='button' value='APROVAR'>
+                                    </td>
+                                </tr>
+                            </form>";
                         }
                     ?>
                 </tr>

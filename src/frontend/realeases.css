@@ -1,6 +1,11 @@
 .pdfIcon {
+    border: 1px solid black;
     text-align: center;
     padding: 10px;
+}
+
+.buttonTable {
+    padding-left: 10px;
 }
 
 #realeases {
@@ -18,3 +23,24 @@
 #situation {
     padding: 10px 100px;
 }
+
+#buttonToApprove {
+    background-color: #2A59C2;
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    border-radius: 4px;
+    transition-duration: 0.6s;
+}
+
+#buttonToApprove:hover {
+    background-color: #04AA6D; /* Green */
+    color: white;
+}
+
+
+
